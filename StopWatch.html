@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stopwatch</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+    <h1>Stop Watch </h1>
+
+<div id="stopwatch">00:00:00</div>
+<button id="startBtn" class="btn" onclick="start()">Start</button>
+<button id="pauseBtn" class="btn" onclick="pause()" disabled>Pause</button>
+<button id="resetBtn" class="btn" onclick="reset()" disabled>Reset</button>
+
+<script>
+  let timer;
+  let seconds = 0;
+  let minutes = 0;
+  let hours = 0;
+  let display = document.getElementById("stopwatch");
+  let startButton = document.getElementById("startBtn");
+  let pauseButton = document.getElementById("pauseBtn");
+  let resetButton = document.getElementById("resetBtn");
+
+  function start() {
+    startButton.disabled = true;
+    pauseButton.disabled = false;
+    resetButton.disabled = false;
+    timer = setInterval(updateTime, 1000);
+  }
+
+  function pause() {
+    startButton.disabled = false;
+    pauseButton.disabled = true;
+    clearInterval(timer);
+  }
+
+  function reset() {
+    startButton.disabled = false;
+    pauseButton.disabled = true;
+    resetButton.disabled = true;
+    clearInterval(timer);
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    display.textContent = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+  }
+
+  function updateTime() {
+    seconds++;
+    if (seconds === 60) {
+      seconds = 0;
+      minutes++;
+    }
+    if (minutes === 60) {
+      minutes = 0;
+      hours++;
+    }
+    display.textContent = formatTime(hours) + ":" + formatTime(minutes) + ":" + formatTime(seconds);
+  }
+
+  function formatTime(time) {
+    return time < 10 ? "0" + time : time;
+  }
+</script>
+
+</body>
+</html>
