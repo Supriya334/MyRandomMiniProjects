@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Show</title>
+</head>
+<style>
+    .container {
+        border: 1px solid rgb(61, 61, 61);
+        height: 560px;
+        width: 70%;
+        margin: auto;
+        text-align: center;
+
+    }
+
+    #images {
+        height: 100%;
+        width: 100%;
+    }
+
+    .prev , .next , .auto{
+        color: black;
+        font-size: 18px;
+        border: none;
+        width: 120px;
+        height: 40px;
+        border-radius: 8px;
+        background-color: rgb(248, 81, 115);
+    }
+    .ho:hover{
+        background-color: rgb(254, 36, 79);
+        cursor: pointer;
+        color: aliceblue;
+    }
+</style>
+
+<body>
+
+    <h1 style="text-align: center;color: rgb(0, 13, 255);">SLIDER</h1>
+    <div class="container">
+
+        <img id="images" src="" alt="">
+
+        <button class="auto ho">Start</button>
+
+        <button class="prev ho" onclick="previous()">Previous</button>
+        <button class="next ho" onclick="next()">Next</button>
+
+    </div>
+
+
+</body>
+<script>
+
+    let img = document.querySelector("img")
+
+    let auto = document.querySelector(".auto")
+    auto.addEventListener("click", imageInc)
+
+    let prev = document.querySelector(".prev")
+
+
+    let nextImg = document.querySelector(".next")
+
+    let i = 0
+
+    let arr = [
+
+        "https://wallpapercave.com/wp/4LcTOoh.jpg",
+
+        "https://th.bing.com/th/id/OIP.fi7kptbL1ttdRt473xsTCAHaFK?w=1536&h=1072&rs=1&pid=ImgDetMain",
+
+        "https://th.bing.com/th/id/OIP.0NuFxstwgERsR8UWHWx0ewHaFK?w=1000&h=698&rs=1&pid=ImgDetMain",
+
+        "https://live.staticflickr.com/8320/8064434407_10891d2602.jpg",
+
+        "https://thumbs.dreamstime.com/b/closeup-beautiful-monarch-butterfly-spread-wings-danaus-plexippus-purple-bush-flower-bokeh-green-background-111221307.jpg",
+
+        "https://www.syracuse.com/resizer/HFRN3XTIfN_fh-byPtZYLRcQYDo=/1280x0/smart/advancelocal-adapter-image-uploads.s3.amazonaws.com/image.syracuse.com/home/syr-media/width2048/img/outdoors/photo/butterflyjpg-97e0bc81b7bdcc86.jpg",
+
+        "https://i0.wp.com/mindyourdirt.com/wp-content/uploads/2016/06/the-sorrow-of-daedalus-01_feature-image.jpg?resize=525%2C525&ssl=1",
+
+        "https://images.fineartamerica.com/images-medium-large-5/the-worlds-wings-bekka-delafield.jpg",
+
+        "https://images.fineartamerica.com/images-medium-large-5/the-monarch-christopher-miles-carter.jpg",
+
+
+        "https://www.gannett-cdn.com/presto/2021/04/22/PASH/6402d9bb-335a-4164-b42c-e5fc25ff0439-Monarch_2.jpg?width=660&height=528&fit=crop&format=pjpg&auto=webp",
+
+
+        "https://cincinnatizoo.org/wp-content/uploads/2022/06/51416569238_fe0048cfc3_b.jpg",
+
+        "https://th.bing.com/th/id/OIP.SdGV8kV8VECN83v3AIjGRQHaFD?rs=1&pid=ImgDetMain",
+
+
+        "https://i.pinimg.com/736x/9b/42/2c/9b422cbd0ac0f0b3e7e4007efd50e42a--camera-lens-blog-entry.jpg",
+
+
+        "https://live.staticflickr.com/4365/35935454503_00f57c55d4_b.jpg",
+
+        "https://live.staticflickr.com/3012/3062505898_346bb24e3b_b.jpg",
+
+
+        "https://live.staticflickr.com/2493/4079262062_1bc0981bcc_b.jpg",
+
+        "https://images.fineartamerica.com/images-medium-large-5/monarch-dreaming-neal-eslinger.jpg",
+
+
+        "https://benkolstad.net/wp-content/gallery/butterflies/viceroy.jpg",
+
+        "https://th.bing.com/th/id/OIP.Nwwnd5uDHteIJL9bZvf8RQHaHa?w=768&h=768&rs=1&pid=ImgDetMain",
+
+
+        "https://th.bing.com/th/id/R.6e4469153ccf7a9a176e354469dff4b0?rik=0z86oqeIMBwYLg&riu=http%3a%2f%2fc1.staticflickr.com%2f1%2f153%2f418879074_f9c7e8aeef.jpg&ehk=S6m8LowjcAQYhs%2b4sVRMypjPLbrHX%2bqSOoRgPUK42UM%3d&risl=&pid=ImgRaw&r=0"
+    ]
+
+    let interval;
+
+    function imageInc() {
+
+        clearInterval((interval))
+        console.log("cleared interval")
+
+        interval = setInterval(() => {
+
+
+            img.src = arr[i]
+            i++;
+            console.log(i)
+
+            if (i == arr.length - 1) {
+                i = 0
+            }
+
+        }, 1000)
+        console.log("another started")
+
+    }
+
+
+    function previous() {
+        clearInterval((interval))
+        
+        if(i==0){
+            i=arr.length-1
+        }
+
+        i--
+        img.src = arr[i]
+console.log(i)
+        
+    }
+
+    function next() {
+        clearInterval((interval))
+      
+        if(i==arr.length-1){
+            i=0
+        }
+
+        i++
+        img.src = arr[i]
+        console.log(i)
+    }
+
+
+    imageInc()
+
+</script>
+
+</html>
