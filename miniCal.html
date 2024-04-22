@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculator</title>
+</head>
+<style>
+    .container {
+        border: 1px solid grey;
+        height: 300px;
+        width: 40%;
+        margin: 30px;
+        padding: 30px;
+        border-radius: 5px;
+    }
+
+    .add,
+    .substract,
+    .multiply,
+    .divide {
+        width: 80px;
+        height: 30px;
+        border-radius: 6px;
+       background-color: rgb(236, 99, 151);
+       border: none;
+    }
+
+    .addi:hover {
+        background-color: crimson;
+        border: none;
+        border-radius: 6px;
+        color: aliceblue;
+    }
+    #one,#two{
+height: 28px;
+width: 180px;
+
+    }
+</style>
+
+<body>
+
+
+
+    <h1 style="margin: 40px;">A Mini Calculator</h1>
+    <div class="container">
+
+        <input type="number" placeholder="enter the first number" id="one">
+
+        <input type="number" placeholder="enter the second number" id="two"> <br> <br>
+
+        <button class="add addi">Add</button>
+
+        <button class="substract addi">Substract</button>
+
+        <button class="multiply addi">Multiply</button>
+
+        <button class="divide addi">Divide</button>
+
+
+    </div>
+
+
+</body>
+<script>
+
+
+
+    let inp1 = document.getElementById("one");
+
+    let inp2 = document.getElementById("two");
+
+
+    let addBtn = document.querySelector(".add")
+    let substractBtn = document.querySelector(".substract")
+    let multiplyBtn = document.querySelector(".multiply")
+    let divideBtn = document.querySelector(".divide")
+
+
+
+    addBtn.addEventListener("click", add)
+    substractBtn.addEventListener("click", substract)
+    multiplyBtn.addEventListener("click", multiply)
+    divideBtn.addEventListener("click", divide)
+
+    function add() {
+
+        let in1 = parseFloat(inp1.value)
+        let in2 = parseFloat(inp2.value)
+
+        let result = in1 + in2
+
+        alert("your answer is" + "  " + result);
+
+    }
+
+
+    function substract() {
+
+        let in1 = parseFloat(inp1.value)
+        let in2 = parseFloat(inp2.value)
+
+        let result = in1 - in2
+
+        alert("your answer is" + "  " + result);
+
+    }
+
+    function multiply() {
+
+        let in1 = parseFloat(inp1.value)
+        let in2 = parseFloat(inp2.value)
+
+        let result = in1 * in2
+
+        alert("your answer is" + "  " + result);
+
+    }
+
+
+    function divide() {
+
+        let in1 = parseFloat(inp1.value)
+        let in2 = parseFloat(inp2.value)
+
+        let result = in1 / in2
+
+        alert("your answer is" + "  " + result);
+
+    }
+
+</script>
+
+</html>
