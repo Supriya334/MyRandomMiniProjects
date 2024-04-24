@@ -1,0 +1,6 @@
+/* Fill CSS here */
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
