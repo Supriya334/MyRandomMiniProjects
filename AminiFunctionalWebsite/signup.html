@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <form action="">
+
+        <input type="text" name="name" id="name">
+
+        <input type="email" name="email" id="email">
+
+        <input type="password" name="password" id="password">
+
+        <input type="submit">
+
+    </form>
+
+
+</body>
+<script>
+
+    let form = document.querySelector("form");
+
+    async function submitForm(e) {
+        e.preventDefault()
+        let myFormData = {
+            name: form.name.value,
+            password: form.password.value,
+            email: form.email.value,
+
+
+        }
+
+        let res = await fetch("http://localhost:3000/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(myFormData),
+        })
+    }
+
+    form.addEventListener('submit', submitForm)
+
+
+
+
+</script>
+
+</html>
