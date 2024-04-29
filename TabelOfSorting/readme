@@ -1,0 +1,25 @@
+Employee Management System
+
+
+1- fetch the data,
+
+2-create a dummy structure to append data from api,
+
+3- create a sorting
+
+4- pagination
+
+
+The Employee Management System is a web application that allows users to view and manage employee data. Users can filter employees by department and gender, sort them by salary, and navigate through paginated results.
+
+Features
+Filtering: Users can filter employees by department and gender to view specific groups of employees.
+
+
+Sorting: Employees can be sorted by salary in ascending or descending order.
+
+
+Pagination: Results are paginated to improve usability and performance.
+
+
+Responsive Design: The application is designed to work seamlessly across various devices and screen sizes.
